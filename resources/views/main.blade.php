@@ -6,74 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        .container{
-            border
-        }
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script
+  src="https://browser.sentry-cdn.com/7.20.1/bundle.min.js"
+  integrity="sha384-ksXx74Cski/cokZPVeTXHKKlYYiMlbqL3Wl6IM4q/+7FFg1WyPyqabLu65X844KT"
+  crossorigin="anonymous"
+    ></script>
+    <style> 
 
 
     </style>
 </head>
 <body>
-    <div class = "container" style="b">
-      <div class="row">
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-        <div class="col">.col</div>
-        <div class="col">.col</div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            1 of 3
-          </div>
-          <div class="col-6">
-            2 of 3 (wider)
-          </div>
-          <div class="col">
-            3 of 3
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            1 of 3
-          </div>
-          <div class="col-5">
-            2 of 3 (wider)
-          </div>
-          <div class="col">
-            3 of 3
-          </div>
-        </div>
-      </div>
-    </div>
+    <input id = "input" type="form">
+    <button id= "button" type="button">Click Me!</button>
+</body>
+    <script>
+$("#button").click(function(){
+    $.ajax({
+    url: "https://eun1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ $('#input').val() +"?api_key=RGAPI-9c17e0f4-a6a5-4ba2-9ab3-b16c0443212a",
+    context: document.body,
+    success:function(response){
+        console.log(response)
+        document.write(response).val()
+    }
+    }).done(function() {
+        $( this ).addClass( "done" );
+    });
+});
+    </script>
+
 </body>
 </html>
