@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/main', function() {
-    return view('main');
+Route::get('/create', function() {
+    return view('create');
  });
-
+ Route::post('/create',function() {
+    Article::create([
+        'title' => request('title'),
+        'body' => request('body'),
+        'description' => request('description')
+    ]);
+ });
 
  Route::get('/unmain', function() {
     return view('unmain');
  });
 
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
