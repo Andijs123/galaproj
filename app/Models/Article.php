@@ -9,8 +9,10 @@ class Article extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'creator',
         'title',
         'body',
         'description',
     ];
+    public $timestamps = true;
 }

@@ -24,7 +24,8 @@ Route::get('/create', function() {
     Article::create([
         'title' => request('title'),
         'body' => request('body'),
-        'description' => request('description')
+        'description' => request('description'),
+        'creator' => Auth::user()->id,
     ]);
  });
 

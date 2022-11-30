@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('creator');
+            $table->foreign('creator')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->text('body');
             $table->text('description');

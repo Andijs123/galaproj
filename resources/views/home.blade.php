@@ -13,10 +13,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged ') }}{{Auth::user()->id}}
-                    <?php
-                    echo($articles);
-                    ?>
+                    {{ __('You are loggsdfsdfed in ') }}{{Auth::user()->name}}!
+                    
                 </div>
             </div>
         </div>
