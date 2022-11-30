@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -15,6 +14,9 @@
                     @endif
 
                     {{ __('You are logged ') }}{{Auth::user()->id}}
+                    <?php
+                    echo($articles);
+                    ?>
                 </div>
             </div>
         </div>
