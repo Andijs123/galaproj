@@ -56,11 +56,17 @@
 
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{url("/home")}}" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            Home page
+                                        </a>
                                         <a class="dropdown-item" href="{{url("/create")}}" aria-haspopup="true" aria-expanded="false" v-pre>
                                             Create a post
                                         </a>
-                                        <a class="dropdown-item" href="{{url("/home")}}" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            Home page
+                                        <a class="dropdown-item" href="{{url("/myposts")}}" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            My posts
+                                        </a>
+                                        <a class="dropdown-item" href="{{url("/myprofile")}}" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            My profile
                                         </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

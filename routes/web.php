@@ -1,5 +1,6 @@
 <?php
 use App\Models\Article;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/create', function() {
     return view('create');
- });
+ })->middleware('auth');
+
  Route::post('/create',function() {
     Article::create([
         'title' => request('title'),
@@ -29,9 +30,12 @@ Route::get('/create', function() {
     ]);
  });
 
- Route::get('/unmain', function() {
-    return view('unmain');
- });
+ Route::get('/myposts', function() {
+    return view('myposts');
+ })->middleware('auth');
+ Route::get('/myprofile', function() {
+    return view('myprofile');
+ })->middleware('auth');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
