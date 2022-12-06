@@ -30,19 +30,10 @@ class HomeController extends Controller
     public function index()
     {
 
-        $users = DB::select('select * from users');
-        foreach ($users as $user) {
-            echo $user->name,"<br>";
-        }
-        $articles = DB::select('select * from articles');
-        foreach ($articles as $article) {
-            echo $article->creator;
-        }
+
         $user_id = Auth::user()->id;
-        $articles = Article::where('id',$user_id)->get();
+        $articles = Article::where('id',$user_id)->with('user')->get();
+        // dd($articles[0]->user->id);
         return view('home', ['articles'=>$articles]);
-
-    }
-
-}
+}}
 

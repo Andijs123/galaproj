@@ -12,6 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <span>{{$articles[0]->user->name}}</span>
 
                     {{ __('You are logged in ') }}{{Auth::user()->name}}!
 
