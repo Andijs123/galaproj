@@ -31,8 +31,9 @@ class HomeController extends Controller
     {
 
 
-        $user_id = Auth::user()->id;
-        $articles = Article::where('id',$user_id)->with('user')->get();
+        //$user_id = Auth::user()->id;
+        //$articles = Article::where('id',$user_id)->with('user')->get();
+        $articles = Article::get();
         // dd($articles[0]->user->id);
         return view('home', ['articles'=>$articles]);
 }}

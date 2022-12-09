@@ -28,6 +28,9 @@ Route::get('/create', function() {
         'description' => request('description'),
         'creator' => Auth::user()->id,
     ]);
+    Route::get('/', ['as' => 'create', 'uses' => function () {
+        return view('home');
+    }]);
  });
 
  Route::get('/myposts', function() {
